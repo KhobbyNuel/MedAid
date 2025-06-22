@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAid</title>
+    <link rel="stylesheet" href="CSS/teledoc.css">
+    <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
+    <header>
+        <h1>MedAid</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="healthLibrary.html">Health Library</a></li>
+                <li><a href="symptomChecker.html">Symptom Checker</a></li>
+                <li> <a href="teledoc.html">Teledoc</a></li>
+                    <li>  <a href="EmergencyContact.html">Emergency Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="profile">
+            <h2>Profile</h2>
+            <div class="profile-details">
+                <img id="profilePicture" src="ASSETS/pdoc8.jpg" alt="Profile Picture">
+                <div>
+                    <p><strong>Name:</strong> <span id="userName">Emmanuel Gyamfi</span></p>
+                    <p><strong>Role:</strong> <span id="userRole">Patient</span></p>
+                    <p><strong>Email:</strong> <span id="userEmail">nuelgenfi2366.com</span></p>
+                    <button id="editProfile">Edit Profile</button>
+                </div>
+            </div>
+
+            <div id="editProfileModal" class="modal">
+                <div class="modal-content">
+                    <h2>Edit Profile</h2>
+                    <form id="editProfileForm">
+                        <label for="editName">Name:</label>
+                        <input type="text" id="editName" value="Emmanuel Gyamfi">
+                        
+                        <label for="editRole">Role:</label>
+                        <input type="text" id="editRole" value="Patient">
+                        
+                        <label for="editEmail">Email:</label>
+                        <input type="email" id="editEmail" value="nuelgenfi2366@gmail.com">
+                        
+                        <button type="submit">Save Changes</button>
+                        <button type="button" id="closeEditModal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="doctors">
+            <h2>Available Doctors</h2>
+            <div class="doctor-card">
+                <img src="ASSETS/pdoc3.jpg" alt="Dr. Nicole Baldwin" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. Nicole Baldwin, APRN, FNP-BC</h3>
+                    <p>Specialist in Men's & Women's Health, Pediatrics</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('Nicole Baldwin')">View Profile</button>
+                </div>
+            </div>
+            <div class="doctor-card">
+                <img src="ASSETS/pdoc1.jpg" alt="Dr. Sarah Adams" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. Sarah Adams, MD</h3>
+                    <p>Cardiologist - Heart Health Specialist</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('Sarah Adams')">View Profile</button>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <img src="ASSETS/vv2.jpeg" alt="Dr. James Wilson" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. James Wilson, DO</h3>
+                    <p>Orthopedic Surgeon - Joint and Bone Specialist</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('James Wilson')">View Profile</button>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <img src="ASSETS/doc1.jpg" alt="Dr. Emily Carter" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. Emily Carter, MD</h3>
+                    <p>Dermatologist - Skin Care and Treatment</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('Emily Carter')">View Profile</button>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <img src="ASSETS/Expert-3.jpg" alt="Dr. David Patel" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. David Patel, MBBS</h3>
+                    <p>Pediatrician - Child Health Specialist</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('David Patel')">View Profile</button>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <img src="ASSETS/Expert-2.jpg" alt="Dr. Olivia Johnson" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. Olivia Johnson, MD</h3>
+                    <p>Psychiatrist - Mental Health and Wellness</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('Olivia Johnson')">View Profile</button>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <img src="ASSETS/Expert-1.jpg" alt="Dr. Michael Lee" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. Michael Lee, MD</h3>
+                    <p>General Practitioner - Primary Care</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('Michael Lee')">View Profile</button>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <img src="ASSETS/pdoc5.jpg" alt="Dr. Angela Brown" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. Angela Brown, MD</h3>
+                    <p>Neurologist - Brain and Nervous System Specialist</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('Angela Brown')">View Profile</button>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <img src="ASSETS/pdoc6.jpg" alt="Dr. Daniel Garcia" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. Daniel Garcia, MD</h3>
+                    <p>Endocrinologist - Hormonal Health Specialist</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('Daniel Garcia')">View Profile</button>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <img src="ASSETS/pdoc4.jpg" alt="Dr. Hannah Martinez" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. Hannah Martinez, MD</h3>
+                    <p>Oncologist - Cancer Care Specialist</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('Hannah Martinez')">View Profile</button>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <img src="ASSETS/pdoc9.jpg" alt="Dr. Christopher Evans" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. Christopher Evans, MD</h3>
+                    <p>Gastroenterologist - Digestive Health Specialist</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('Christopher Evans')">View Profile</button>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <img src="ASSETS/pdoc7.jpg" alt="Dr. Valsa Madhava" class="doctor-photo">
+                <div class="doctor-details">
+                    <h3>Dr. Valsa Madhava, MD</h3>
+                    <p>Specialist in Functional Medicine and Addiction Medicine</p>
+                    <button class="view-profile" onclick="viewDoctorProfile('Valsa Madhava')">View Profile</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="virtualCall">
+            <h2>One-on-One Virtual Call</h2>
+            <div id="callInterface">
+                <p>Select a doctor to start a virtual call:</p>
+                <select id="callDoctorSelect">
+                    <option value="" disabled selected>Select a doctor</option>
+                    <option value="Dr. Valsa Madhava">Dr. Valsa Madhava</option>
+                    <option value="Dr. Christopher Evans">Dr. Hannah Martinez</option>
+                    <option value="Dr. Michael Lee">Dr. Michael Lee</option>
+                    <option value="Dr. Olivia Johnson">Dr. Olivia Johnson</option>
+                    <option value="Dr. Sarah Adams">Dr. Sarah Adams</option>
+                    <option value="Dr. Nicole Baldwin">Dr. Nicole Baldwin</option>
+                    <option value="Dr. James Wilson">Dr. James Wilson</option>
+                    <option value="Dr. Daniel Garcia">Dr. Daniel Garcia</option>
+                    <option value="Dr.John Doe">Dr.John Doe</option>
+
+                </select>
+
+
+
+                <button id="startCall">Start Call</button>
+                <div id="videoCallContainer" style="display: none;">
+                    <h3>In a call with <span id="activeDoctor"></span></h3>
+                    <iframe id="videoFrame" src="https://example.com/virtual-call-interface" frameborder="0"></iframe>
+                    <button id="endCall">End Call</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer Section -->
+<section class="footer">
+    <div class="container">
+      <div class="col-wrapper">
+        <!-- Footer Columns -->
+        <div class="col-1">
+          <div class="logo">
+            <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-heartbeat-star-medical-logo-by-vexels.png" alt=""/>
+            <span>MedAid</span>
+          </div>
+        </div>
+        <div class="col-1">
+          <ul>
+            <li><a class="header" href="">More info</a></li>
+            <li><a href="">About MedAid</a></li>
+            <li><a href="">Terms and Conditions</a></li>
+            <li><a href="">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+        <div class="col-1">
+          <ul>
+            <li><a class="header" href="">Contact Us</a></li>
+            <li><a href="">nuelgenfi2366@gmail.com</a></li>
+            <li><a href="">Checkout Projects</a></li>
+          </ul>
+        </div>
+        <div class="col-1">
+          <ul>
+            <li><a class="header" href="">Medical Advisor</a></li>
+            <li><a href="">Login</a></li>
+            <li><a href="">Dashboard</a></li>
+            <li><a href="">Become One</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+    </footer>
+    <script>
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Edit Profile functionality
+    const editProfileButton = document.getElementById('editProfile');
+    const editProfileModal = document.getElementById('editProfileModal');
+    const closeEditModalButton = document.getElementById('closeEditModal');
+    const editProfileForm = document.getElementById('editProfileForm');
+
+    editProfileButton.addEventListener('click', () => {
+        editProfileModal.style.display = 'block';
+    });
+
+    closeEditModalButton.addEventListener('click', () => {
+        editProfileModal.style.display = 'none';
+    });
+
+    editProfileForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        document.getElementById('userName').textContent = document.getElementById('editName').value;
+        document.getElementById('userRole').textContent = document.getElementById('editRole').value;
+        document.getElementById('userEmail').textContent = document.getElementById('editEmail').value;
+        editProfileModal.style.display = 'none';
+    });
+
+    // Doctor Profile Viewer
+    window.viewDoctorProfile = (doctorName) => {
+        alert(`Viewing profile for ${doctorName}.`);
+        // You can add more advanced profile details in a modal here.
+    };
+});
+
+
+    </script>
+</body>
+</html>

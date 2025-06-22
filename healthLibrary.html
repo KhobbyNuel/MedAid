@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!-- Declares this document as an HTML5 document -->
+<html lang="en">
+<!-- Sets the language of the document to English -->
+<head>
+  <!-- The head section contains metadata and links to styles or other resources -->
+  <meta charset="UTF-8">
+  <!-- Sets the character encoding to UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Makes the page responsive to different screen sizes -->
+  <title>Health Library</title>
+  <!-- Sets the title of the page, shown on the browser tab -->
+
+  <!-- Link to an external font for better styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/index.css">
+  <style>
+    /* Inline CSS styles for the webpage */
+
+    body {
+      /* General styling for the entire page */
+      font-family: 'Roboto', sans-serif; /* Sets the font style */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; /* Ensures padding and borders are included in element width/height */
+      color: #333; /* Sets text color */
+    }
+
+    header {
+      /* Styles for the top section (header) */
+      background-color: #0056b3; /* Sets the background color to blue */
+      color: white; /* Makes text color white */
+      padding: 1rem 2rem; /* Adds spacing inside the header */
+      text-align: center; /* Centers the text */
+    }
+
+    .container {
+      /* Wraps the content in the middle of the page */
+      max-width: 1200px; /* Sets the maximum width */
+      margin: 2rem auto; /* Centers the container with top and bottom spacing */
+      padding: 0 1rem; /* Adds some padding on the sides */
+    }
+
+    header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+    header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ffd700;
+}
+     h2 {
+      /* Styles for main headings */
+      color: #0056b3; /* Makes headings blue */
+    }
+
+    .section {
+      /* Styles for each content section */
+      margin-bottom: 3rem; /* Adds spacing below each section */
+    }
+
+    .card {
+      /* Styles for individual content cards */
+      border: 1px solid #ddd; /* Adds a light gray border */
+      border-radius: 8px; /* Rounds the corners */
+      overflow: hidden; /* Ensures content stays inside the card */
+      transition: transform 0.2s; /* Adds a smooth animation when hovered */
+      background: #fff; /* Sets the card background to white */
+    }
+
+    .card:hover {
+      /* Effect when the user hovers over a card */
+      transform: scale(1.03); /* Slightly enlarges the card */
+    }
+
+    .card img {
+      /* Styles for images inside cards */
+      width: 100%; /* Ensures the image spans the entire card width */
+      height: 150px; /* Sets a fixed height for uniformity */
+      object-fit: cover; /* Ensures the image fits within the card */
+    }
+
+    .card-content {
+      /* Styles for the text inside each card */
+      padding: 1rem; /* Adds spacing inside the card */
+      text-align: center; /* Centers the text */
+    }
+
+    .grid {
+      /* Creates a responsive grid layout for cards */
+      display: grid; /* Enables grid layout */
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusts columns based on screen size */
+      gap: 1rem; /* Adds space between grid items */
+    }
+#related{
+  color:#0056b3
+}
+.articles ul li a{
+      text-decoration: none;
+    
+    }
+    
+   .articles  ul li a:hover{
+color:cadetblue
+    }
+
+    footer {
+      /* Styles for the footer at the bottom of the page */
+      background-color:lavender; /* Sets a dark background */
+      color: white; /* Makes text color white */
+      text-align: center; /* Centers the text */
+      padding: 1rem; /* Adds padding around the footer */
+      margin-top: 2rem; /* Adds space above the footer */
+    }
+
+    footer a {
+      /* Styles for links in the footer */
+      color: #00bfff; /* Makes the links light blue */
+      text-decoration: none; /* Removes the underline from the links */
+    }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <h1>MedAid</h1>
+    <nav>
+        <ul>
+
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="healthLibrary.html">Health Library</a></li>
+            <li><a href="symptomChecker.html">Symptom Checker</a></li>
+            <li> <a href="teledoc.html">Teledoc</a></li>
+                <li>  <a href="EmergencyContact.html">Emergency Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+  <!-- Main content container -->
+
+  <!-- Signs and Symptoms Section -->
+  <div class="section">
+    <h2>Signs and Symptoms</h2>
+    <div class="grid">
+      <!-- A grid layout for signs and symptoms cards -->
+      <div class="card">
+        <img src="ASSETS/tired.webp" alt="Tiredness">
+        <div class="card-content">
+          <h3>Tiredness</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="ASSETS/muscle.webp" alt="Muscle Weakness">
+        <div class="card-content">
+          <h3>Muscle Weakness</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="ASSETS/left.webp" alt="Left Upper Quadrant Pain">
+        <div class="card-content">
+          <h3>Left Upper Quadrant Pain</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="ASSETS/lumps.webp" alt="Lumps in the Groin">
+        <div class="card-content">
+          <h3>Lumps in the Groin</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Managing Conditions Section -->
+  <div class="section">
+    <h2>Managing Conditions</h2>
+    <div class="grid">
+      <!-- A grid layout for managing conditions cards -->
+      <div class="card">
+        <img src="ASSETS/sad.jpg" alt="Asthma">
+        <div class="card-content">
+          <h3><a href="ASSETS/Patient - Asthma.pdf">Asthma</a></h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="ASSETS/cold and flu vaccine.webp" alt="Diabetes">
+        <div class="card-content">
+          <h3>Diabetes</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="ASSETS/fight malaria.jpg" alt="Chickenpox">
+        <div class="card-content">
+          <h3>Chickenpox</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="ASSETS/foot pain.jpg" alt="COPD">
+        <div class="card-content">
+          <h3>COPD</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="section">
+  <h2>Health Topics </h2>
+  <p><b>Advice and clinical information on a wide variety of healthcare topics</b></p>
+  <div class="grid">
+    <!-- A grid layout for signs and symptoms cards -->
+    <div class="card">
+      <img src="ASSETS/allergy.webp" alt="Allergies,blood & immune system">
+      <div class="card-content">
+        <h3><a href="ASSETS/Patient - Cholera and cholera vaccination.pdf">Cholera</a></h3>
+      </div>
+    </div>
+    <div class="card">
+      <img src="ASSETS/bones.webp" alt="Bones, joints and muscles">
+      <div class="card-content">
+        <h3><a href="ASSETS/Patient - Migraine.pdf">Brain and nerves</a></h3>
+      </div>
+    </div>
+    <div class="card">
+      <img src="ASSETS/nerves.webp" alt="Asthma">
+      <div class="card-content">
+        <h3><a href="ASSETS/Patient - Asthma.pdf">Asthma</a></h3>
+      </div>
+    </div>
+    <div class="card">
+      <img src="ASSETS/diabetes.webp" alt="Diabetes">
+      <div class="card-content">
+        <h3><a href="ASSETS/Patient - Diabetes.pdf">Diabetes</a></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="articles">
+  <p id="related">Related Articles</p>
+<ul>
+  <li><a href="">Fever</a></li>
+  <li><a href="">Dizzines</a></li>
+  <li><a href="">Left lower quadrant pain</a></li>
+  <li><a href="">Right upper quadrant pain</a></li>
+</ul>
+
+<div>
+
+<div class="articles">
+  <p id="related">Related medicines</p>
+<ul>
+  <li><a href="">Paracetamol</li>
+  <li><a href="">Etoricoxib for pain and inflammation</a></li>
+  <li><a href="">Ibuprofen for pain and inflammation</a></li>
+  <li><a href="">Hyoscine butylbromide tablets</a></li>
+</ul>
+
+</div>
+</div>
+<footer>
+
+
+<!-- Footer Section -->
+<section class="footer">
+  <div class="container">
+    <div class="col-wrapper">
+      <!-- Footer Columns -->
+      <div class="col-1">
+        <div class="logo">
+          <img src="https://images.vexels.com/media/users/3/142777/isolated
+          /preview/84711206e52e0d4ff6c793cb476ea264-heartbeat-star-medical-logo-by-vexels.png" alt="logo"/>
+          <span>MedAid</span>
+        </div>
+      </div>
+      <div class="col-1">
+        <ul>
+          <li><a class="header" href="">More info</a></li>
+          <li><a href="">About MedAid</a></li>
+          <li><a href="">Terms and Conditions</a></li>
+          <li><a href="">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+      <div class="col-1">
+        <ul>
+          <li><a class="header" href="">Contact Us</a></li>
+          <li><a href="">nuelgenfi2366@gmail.com</a></li>
+          <li><a href="">Checkout Projects</a></li>
+        </ul>
+      </div>
+      <div class="col-1">
+        <ul>
+          <li><a class="header" href="">Medical Advisor</a></li>
+          <li><a href="">Login</a></li>
+          <li><a href="">Dashboard</a></li>
+          <li><a href="">Become One</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+ 
+</footer>
+
+</body>
+</html>

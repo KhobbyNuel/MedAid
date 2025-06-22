@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symptom Checker</title>
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/index.css">
+<style>
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+}
+
+h1 {
+  text-align: center;
+  color: #333333;
+}
+
+img{
+  width: 40px;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>        
+        <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-heartbeat-star-medical-logo-by-vexels.png" alt=""/>
+
+      MedAid Symptom Checker</h1>
+
+    <!-- Step 1: User Information -->
+    <div id="userInfo">
+      <p><strong>Step 1: Enter Your Information</strong></p>
+      <form id="userForm">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="1" placeholder="Enter your age" required>
+
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+
+        <label for="gender">Gender Identity:</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select</option>
+          <option value="boy">Boy</option>
+          <option value="girl">Girl</option>
+          <option value="man">Man</option>
+          <option value="woman">Woman</option>
+        </select>
+
+        <button type="button" id="startSymptoms">Next</button>
+      </form>
+
+
+
+     
+    <!-- Step 2: Symptom Selection -->
+    <div id="symptomSelection" style="display: none;">
+      <p><strong>Step 2: Select Your Symptoms</strong></p>
+      <form id="symptomForm"></form>
+      <button type="button" id="submitSymptoms">Check Symptoms</button>
+    </div>
+
+    <!-- Step 3: Results -->
+    <div id="result" class="result" style="display: none;"></div>
+  </div>
+  <script>
+
+
+// Symptom database with conditions and advice
+const symptomsDatabase = {
+  Fever: {
+    conditions: ["Flu", "COVID-19", "Malaria"],
+    advice: "Stay hydrated and rest. Seek medical attention if fever persists.",
+  },
+  Cough: {
+    conditions: ["Common Cold", "Bronchitis", "COVID-19"],
+    advice: "Drink warm fluids and avoid cold environments. See a doctor if it worsens.",
+  },
+  Headache: {
+    conditions: ["Migraine", "Stress", "Dehydration"],
+    advice: "Rest in a quiet, dark room. Stay hydrated and consider over-the-counter pain relief.",
+  },
+  Fatigue: {
+    conditions: ["Anemia", "Thyroid Issues", "Chronic Fatigue Syndrome"],
+    advice: "Eat a balanced diet, rest, and seek medical advice for persistent symptoms.",
+  },
+  // Add more symptoms as needed
+};
+
+// Capture user demographics and navigate to symptom selection
+document.getElementById("startSymptoms").addEventListener("click", () => {
+  const age = document.getElementById("age").value;
+  const sex = document.getElementById("sex").value;
+  const gender = document.getElementById("gender").value;
+
+  if (!age || !sex || !gender) {
+    alert("Please fill out all fields.");
+    return;
+  }
+
+  // Hide user info and display symptom selection
+  document.getElementById("userInfo").style.display = "none";
+  document.getElementById("symptomSelection").style.display = "block";
+
+  populateSymptomsForm();
+});
+
+// Generate dynamic symptom checkboxes
+function populateSymptomsForm() {
+  const symptomForm = document.getElementById("symptomForm");
+  symptomForm.innerHTML = ""; // Clear any existing content
+
+  Object.keys(symptomsDatabase).forEach((symptom) => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <input type="checkbox" id="${symptom}" name="symptom" value="${symptom}">
+      <label for="${symptom}">${symptom}</label>
+    `;
+    symptomForm.appendChild(div);
+  });
+}
+
+// Analyze selected symptoms and display results
+document.getElementById("submitSymptoms").addEventListener("click", () => {
+  const selectedSymptoms = Array.from(
+    document.querySelectorAll('input[name="symptom"]:checked')
+  ).map((input) => input.value);
+
+  if (selectedSymptoms.length === 0) {
+    alert("Please select at least one symptom.");
+    return;
+  }
+
+  const resultDiv = document.getElementById("result");
+  const conditions = new Set();
+  let advice = "";
+
+  selectedSymptoms.forEach((symptom) => {
+    symptomsDatabase[symptom].conditions.forEach((condition) =>
+      conditions.add(condition)
+    );
+    advice += `<p><strong>${symptom}:</strong> ${symptomsDatabase[symptom].advice}</p>`;
+  });
+
+  // Display results
+  resultDiv.style.display = "block";
+  resultDiv.innerHTML = `
+    <h2>Results</h2>
+    <p><strong>Possible Conditions:</strong></p>
+    <ul>${[...conditions].map((c) => `<li>${c}</li>`).join("")}</ul>
+    <p><strong>Medical Advice:</strong></p>
+    ${advice}
+    <p><em>Note: Always consult a healthcare professional for an accurate diagnosis.</em></p>
+  `;
+});
+
+
+
+  </script>
+</body>
+</html>
